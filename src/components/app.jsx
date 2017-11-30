@@ -1,12 +1,14 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Landing from "./landing";
+import Search from "./search";
 
 const App = () => (
 	<BrowserRouter>
 		<div className="app">
 			<Switch>
-				<Route path="/" component={Landing} />
+				<Route exact path="/" component={Landing} />
+				<Route path="/search" component={Search} />
 			</Switch>
 		</div>
 	</BrowserRouter>
