@@ -458,7 +458,7 @@ html {
 }
 
 .lheading {
-  color: #b10dc9;
+  color: #cd6600;
   font-family: Skia;
   font-weight: normal;
 }
@@ -495,4 +495,28 @@ html {
   background-color: #fafafa;
   color: #333;
   border-color: #333;
+}
+
+.search {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  overflow-y: scroll;
+  background-color: rgba(220, 220, 220, 0.8);
+  padding: 15px 30px;
+  border-radius: 5px;
+  min-width: 1400px;
+}
+
+.search > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+pre {
+  text-align: left;
 }
