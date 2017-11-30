@@ -1,9 +1,9 @@
 import React from "react";
-import renderer from "react-test-renderer";
-import Search from "../Search";
+//enzyme is going to stub out all the childern as well
+import { shallow } from "enzyme";
+import Search from "../components/search";
 
 test("Search renders correctly", () => {
-	const component = renderer.create(<Search />);
-	let tree = component.toJSON();
-	expect(tree).toMatchSnapshot();
+	const component = shallow(<Search />);
+	expect(component).toMatchSnapshot();
 });
