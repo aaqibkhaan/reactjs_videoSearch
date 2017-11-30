@@ -8,8 +8,8 @@
 		"dev": "webpack-dev-server",
 		"lint": "eslint **/*.{js,jsx} --quiet",
 		"fix": "./node_modules/.bin/eslint --fix ./src/components/*",
-		"test": "jest",
-		"test:update": "jest -u"
+		"test": "NODE_ENV=test ./node_modules/.bin/jest -u",
+		"test:update": "NODE_ENV=test ./node_modules/.bin/jest -u"
 	},
 	"jest": {
 		"snapshotSerializers": ["jest-serializer-enzyme"]
