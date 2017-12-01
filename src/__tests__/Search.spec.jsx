@@ -1,5 +1,4 @@
 import React from "react";
-//enzyme is going to stub out all the childern as well
 import { shallow } from "enzyme";
 import Search from "../components/search";
 

@@ -8,11 +8,16 @@
 		"dev": "webpack-dev-server",
 		"lint": "eslint **/*.{js,jsx} --quiet",
 		"fix": "./node_modules/.bin/eslint --fix ./src/components/*",
-		"test": "NODE_ENV=test ./node_modules/.bin/jest -u",
-		"test:update": "NODE_ENV=test ./node_modules/.bin/jest -u"
+		"test": "./node_modules/.bin/jest",
+		"test-u": "./node_modules/.bin/jest -u"
 	},
 	"jest": {
-		"snapshotSerializers": ["jest-serializer-enzyme"]
+		"snapshotSerializers": [
+			"enzyme-to-json/serializer"
+		],
+		"setupFiles": [
+			"<rootDir>/src/setupTests.js"
+		]
 	},
 	"author": "aaqibrashid@hotmail.com",
 	"license": "ISC",
@@ -26,6 +31,9 @@
 		"babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
 		"babel-preset-env": "^1.6.1",
 		"babel-preset-react": "^6.24.1",
+		"enzyme": "^3.2.0",
+		"enzyme-adapter-react-16": "^1.1.0",
+		"enzyme-to-json": "^3.0.0-beta6",
 		"eslint": "^4.12.1",
 		"eslint-config-airbnb": "^16.1.0",
 		"eslint-config-prettier": "^2.9.0",
