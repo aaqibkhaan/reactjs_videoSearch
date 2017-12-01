@@ -9,15 +9,11 @@
 		"lint": "eslint **/*.{js,jsx} --quiet",
 		"fix": "./node_modules/.bin/eslint --fix ./src/components/*",
 		"test": "./node_modules/.bin/jest",
-		"test-u": "./node_modules/.bin/jest -u"
+		"test:coverage": "./node_modules/.bin/jest --coverage"
 	},
 	"jest": {
-		"snapshotSerializers": [
-			"enzyme-to-json/serializer"
-		],
-		"setupFiles": [
-			"<rootDir>/src/setupTests.js"
-		]
+		"snapshotSerializers": ["enzyme-to-json/serializer"],
+		"setupFiles": ["<rootDir>/src/setupTests.js"]
 	},
 	"author": "aaqibrashid@hotmail.com",
 	"license": "ISC",
