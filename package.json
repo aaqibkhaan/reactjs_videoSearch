@@ -7,7 +7,17 @@
 		"build": "webpack",
 		"dev": "webpack-dev-server",
 		"lint": "eslint **/*.{js,jsx} --quiet",
-		"fix": "./node_modules/.bin/eslint --fix ./src/components/*"
+		"fix": "./node_modules/.bin/eslint --fix ./src/components/*",
+		"test": "./node_modules/.bin/jest",
+		"test-u": "./node_modules/.bin/jest -u"
+	},
+	"jest": {
+		"snapshotSerializers": [
+			"enzyme-to-json/serializer"
+		],
+		"setupFiles": [
+			"<rootDir>/src/setupTests.js"
+		]
 	},
 	"author": "aaqibrashid@hotmail.com",
 	"license": "ISC",
@@ -21,6 +31,9 @@
 		"babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
 		"babel-preset-env": "^1.6.1",
 		"babel-preset-react": "^6.24.1",
+		"enzyme": "^3.2.0",
+		"enzyme-adapter-react-16": "^1.1.0",
+		"enzyme-to-json": "^3.0.0-beta6",
 		"eslint": "^4.12.1",
 		"eslint-config-airbnb": "^16.1.0",
 		"eslint-config-prettier": "^2.9.0",
@@ -30,9 +43,12 @@
 		"eslint-plugin-jsx-a11y": "^6.0.2",
 		"eslint-plugin-prettier": "^2.3.1",
 		"eslint-plugin-react": "^7.5.1",
+		"jest": "^21.2.1",
+		"jest-serializer-enzyme": "^1.0.0",
 		"prettier": "^1.8.2",
 		"react-dom": "^16.2.0",
 		"react-router-dom": "^4.2.2",
+		"react-test-renderer": "^16.2.0",
 		"webpack": "^3.8.1",
 		"webpack-dev-server": "^2.9.5"
 	},
