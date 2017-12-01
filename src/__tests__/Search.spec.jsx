@@ -10,8 +10,8 @@ test("Search renders correctly", () => {
 });
 
 test("Search should render correct amount of shows", () => {
-	const component = shallow(
-		<UnwrappedSearch searchTerm="" shows={preload.shows} />
-	);
-	expect(preload.shows.length).toEqual(component.find(ShowCard).length);
+	const component = shallow(<Search />);
+	expect(component.find(ShowCard).length).toEqual(preload.shows.length);
 });
+
+test("", () => {});
