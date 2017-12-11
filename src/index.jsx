@@ -3,19 +3,14 @@ import { render } from "react-dom";
 import App from "./components/app";
 /* eslint no-undef: "off" */
 
-const renderApp = () =>{
-	render(<App />, document.getElementById("app"));	
+const renderApp = () => {
+	render(<App />, document.getElementById("app"));
 };
 
 renderApp();
 
-if(module.hot){
-	module.hot.accept('./components/app', () => {
+if (module.hot) {
+	module.hot.accept("./components/app", () => {
 		renderApp();
 	});
 }
-
-
-
-
-
