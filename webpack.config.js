@@ -2,15 +2,24 @@ const path = require("path");
 const webpack = require("webpack");
 
 module.exports = {
+
+
   context: __dirname,
-  entry: "./src/index.jsx",
-  devtool:
-    process.env.NODE_ENV === "development" ? "cheap-eval-source-map" : false,
+    entry: [
+    'react-hot-loader/patch',
+    'webpack-dev-server/client?http://localhost:8081',
+    'webpack/hot/only-dev-server',
+    './src/index.jsx'
+  ],
+  devtool: 'cheap-eval-source-map',
   output: {
     path: path.join(__dirname, "public"),
-    filename: "bundle.js"
+    filename: "bundle.js",
+    publicPath: "/public/"
+
   },
   devServer: {
+    hot : true,
     publicPath: "/public/",
     historyApiFallback: true
   },
