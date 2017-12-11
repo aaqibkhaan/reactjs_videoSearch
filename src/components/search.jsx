@@ -19,11 +19,13 @@ class Search extends Component<Props, State> {
     searchTerm: ""
   };
 
-handleSearchTermChange = (event: SyntheticKeyboardEvent<HTMLInputElement>) => {
-    if (event.target instanceof HTMLInputElement) {
-  this.setState({ searchTerm: event.target.value });
+  handleSearchTermChange = (event: SyntheticKeyboardEvent<HTMLInputElement>) => {
+    if (event.currentTarget instanceof HTMLInputElement) {
+    this.setState({ searchTerm: event.currentTarget.value });
   }
 };
+
+
   render() {
     return (
       <div className="search">
