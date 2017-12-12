@@ -1,10 +1,15 @@
 // @flow
 
-import React from "react";
+import React, { Component } from "react";
+import axios from 'axios'
 import Header from './Header';
+import Spinner from './Spinner'
 
-const Details = (props: { show: Show }) => {
-	const { title, year, description, poster, trailer } = props.show;
+class Details extends Component {
+	props: { show: Show };
+
+	render(){
+		const { title, year, description, poster, trailer } = this.props.show;
 
 	return (
 		<div className="details">
@@ -31,6 +36,7 @@ const Details = (props: { show: Show }) => {
 			</div>
 		</div>
 	);
-};
+}
+}
 
 export default Details;
