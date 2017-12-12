@@ -497,7 +497,7 @@ html {
   border-color: #333;
 }
 
-.search {
+.details, .search {
   position: absolute;
   top: 15px;
   left: 15px;
@@ -519,4 +519,11 @@ html {
 
 pre {
   text-align: left;
+}
+
+.details > div {
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  position: relative;
 }
