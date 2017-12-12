@@ -1,30 +1,28 @@
 // @flow
 
-
 import React, { Component } from "react";
 import ShowCard from "./ShowCard";
-import preload from "../data.json";
 
 type Props = {
-    name: string
+  shows: Array<Show>
 };
 
 type State = {
-  searchTerm: string,
+  searchTerm: string
 };
 
 class Search extends Component<Props, State> {
-
   state = {
     searchTerm: ""
   };
 
-  handleSearchTermChange = (event: SyntheticKeyboardEvent<HTMLInputElement>) => {
+  handleSearchTermChange = (
+    event: SyntheticKeyboardEvent<HTMLInputElement>
+  ) => {
     if (event.currentTarget instanceof HTMLInputElement) {
-    this.setState({ searchTerm: event.currentTarget.value });
-  }
-};
-
+      this.setState({ searchTerm: event.currentTarget.value });
+    }
+  };
 
   render() {
     return (
@@ -39,7 +37,7 @@ class Search extends Component<Props, State> {
           />
         </header>
         <div>
-          {preload.shows
+          {this.props.shows
             .filter(
               show =>
                 `${show.title} ${show.description}`
