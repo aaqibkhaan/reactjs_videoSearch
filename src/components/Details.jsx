@@ -1,19 +1,19 @@
 // @flow
 
 import React from "react";
+import Header from './Header';
 
 const Details = (props: { show: Show }) => {
 	const { title, year, description, poster, trailer } = props.show;
 
 	return (
 		<div className="details">
-			<header>
-				<h1> Search Videos</h1>
-			</header>
-			<section>
+			<Header />
+			<section className="detailsSection">
 				<h1>{title}</h1>
 				<h2>({year})</h2>
 				<img
+					className = "detailsImage"
 					src={`/public/img/posters/${poster}`}
 					alt={`Poster for ${title}`}
 				/>
@@ -21,6 +21,7 @@ const Details = (props: { show: Show }) => {
 			</section>
 			<div>
 				<iframe
+					className = "detailsIframe"
 					src={`https://www.youtube-nocookie.com/embed/
 						${trailer}?rel=0&amp;controls=0&amp;showinfo=0`}
 					frameBorder="0"
