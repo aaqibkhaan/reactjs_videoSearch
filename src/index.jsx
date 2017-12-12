@@ -1,10 +1,13 @@
+// @flow
+
 import React from "react";
 import { render } from "react-dom";
 import App from "./components/app";
 /* eslint no-undef: "off" */
+const appId = (document.getElementById("app"): any);
 
 const renderApp = () => {
-	render(<App />, document.getElementById("app"));
+	render(<App />, appId);
 };
 
 renderApp();
