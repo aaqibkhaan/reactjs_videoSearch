@@ -537,7 +537,7 @@ pre {
   height: 100%;
 }
 
-.detailsImage{
+.detailsImage, .spinner {
   width: 8%;
 }
 
