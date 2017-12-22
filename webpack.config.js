@@ -1,7 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 
-module.exports = {
+const config = {
 
 
   context: __dirname,
@@ -53,3 +53,12 @@ module.exports = {
     ]
   }
 };
+
+if (process.env.NODE_ENV === 'production') {
+
+  config.entry = './src/index.jsx'
+  config.devtool = false;
+  config.plugins = [];
+}
+
+module.exports = config;
