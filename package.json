@@ -14,8 +14,12 @@
 		"flow": "./node_modules/.bin/flow"
 	},
 	"jest": {
-		"snapshotSerializers": ["enzyme-to-json/serializer"],
-		"setupFiles": ["<rootDir>/src/setupTests.js"]
+		"snapshotSerializers": [
+			"enzyme-to-json/serializer"
+		],
+		"setupFiles": [
+			"<rootDir>/src/setupTests.js"
+		]
 	},
 	"author": "aaqibrashid@hotmail.com",
 	"license": "ISC",
@@ -53,8 +57,10 @@
 	},
 	"dependencies": {
 		"axios": "^0.17.1",
+		"babel-register": "^6.26.0",
 		"cors": "^2.8.4",
 		"express": "^4.16.2",
+		"lodash": "^4.17.4",
 		"prop-types": "^15.6.0",
 		"react": "^16.2.0",
 		"react-dom": "^16.2.0",
