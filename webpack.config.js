@@ -9,6 +9,9 @@ module.exports = {
     'react-hot-loader/patch',
     'webpack-dev-server/client?http://localhost:8081',
     'webpack/hot/only-dev-server',
+
+/*   For Server Side rendering with Redux
+    'webpack-hot-middleware/index?path=__webpack_hmr&timeout=2000'*/
     './src/index.jsx'
   ],
   devtool: 'cheap-eval-source-map',

@@ -1,38 +1,52 @@
 /* eslint no-console:0 */
 
-require('babel-register');
-const express = require('express');
-const React = require('react');
-const ReactDOMServer = require('react-dom/server');
-const ReactRouter = require('react-router-dom');
-const _ = require('lodash');
-const fs = require('fs');
-const App = require('./src/index').default;
+require("babel-register");
+const express = require("express");
+const React = require("react");
+const ReactDOMServer = require("react-dom/server");
+const ReactRouter = require("react-router-dom");
+const _ = require("lodash");
+const fs = require("fs");
+const webpackDevMiddleware = require("webpack-dev-middleware");
+const webpackHotMiddleware = require("webpack-hot-middleware");
+const webpack = require("webpack");
+const App = require("./src/index").default;
+const config = require("./webpack.config");
 
 const StaticRouter = ReactRouter.StaticRouter;
 const port = 8082;
-const baseTemplate = fs.readFileSync('./index.html');
+const baseTemplate = fs.readFileSync("./index.html");
 const template = _.template(baseTemplate);
-
 
 const server = express();
 
-server.use('./public', express.static('./public'));
+const compiler = webpack(config);
+server.use(
+	webpackDevMiddleware(compiler, {
+		publicPath: config.output.publicPath
+	})
+);
 
-server.use((req, res ) => {
+server.use(webpackHotMiddleware(compiler));
+
+server.use("./public", express.static("./public"));
+
+server.use((req, res) => {
 	console.log(req.url);
 	const context = {};
 	const body = ReactDOMServer.renderToString(
-		React.createElement(StaticRouter, { location: req.url , context },
-		React.createElement(App)
+		React.createElement(
+			StaticRouter,
+			{ location: req.url, context },
+			React.createElement(App)
 		)
-		);
+	);
 
 	if (context.url) {
 		res.redirect(context.url);
 	}
 
-	res.write(template({body}));
+	res.write(template({ body }));
 	res.end();
 });
 
