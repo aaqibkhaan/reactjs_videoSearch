@@ -2,32 +2,33 @@ const path = require("path");
 const webpack = require("webpack");
 
 const config = {
-
-
   context: __dirname,
-    entry: [
-    'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:8081',
-    'webpack/hot/only-dev-server',
+  entry: [
+    "react-hot-loader/patch",
+    "webpack-dev-server/client?http://localhost:8081",
+    "webpack/hot/only-dev-server",
 
-/*   For Server Side rendering with Redux
+    /*   For Server Side rendering with Redux
     'webpack-hot-middleware/index?path=__webpack_hmr&timeout=2000'*/
-    './src/index.jsx'
+    "./src/index.jsx"
   ],
-  devtool: 'cheap-eval-source-map',
+  devtool: "cheap-eval-source-map",
   output: {
     path: path.join(__dirname, "public"),
     filename: "bundle.js",
     publicPath: "/public/"
-
   },
   devServer: {
-    hot : true,
+    hot: true,
     publicPath: "/public/",
     historyApiFallback: true
   },
   resolve: {
-    extensions: [".js", ".jsx", ".json"]
+    extensions: [".js", ".jsx", ".json"],
+    alias: {
+      react: "preact-compat",
+      "react-dom": "preact-compat"
+    }
   },
   stats: {
     colors: true,
@@ -48,15 +49,18 @@ const config = {
       },
       {
         test: /\.jsx?$/,
-        loader: "babel-loader"
+        loader: "babel-loader",
+        include: [
+          path.resolve("js"),
+          path.resolve("node_modules/preact-compat/src")
+        ]
       }
     ]
   }
 };
 
-if (process.env.NODE_ENV === 'production') {
-
-  config.entry = './src/index.jsx'
+if (process.env.NODE_ENV === "production") {
+  config.entry = "./src/index.jsx";
   config.devtool = false;
   config.plugins = [];
 }
